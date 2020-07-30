@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="userDaoMySqlImpl" class="com.sufu.spring.ioc.dao.impl.UserDaoMySqlImpl"/>
+    <bean id="userDaoImpl" class="com.sufu.spring.ioc.dao.impl.UserDaoImpl"/>
+    <bean id="userServiceImpl" class="com.sufu.spring.ioc.service.impl.UserServiceImpl">
+        <!-- ref 引用已经定义好的bean -->
+        <property name="userDao" ref="userDaoImpl"/>
+    </bean>
+    <!--默认的无参构造方法注入-->
+<!--    <bean id="user" class="User">
+        <property name="name" value="苏伏"/>
+        <property name="age" value="18"/>
+    </bean>-->
+
+    <!--全参构造方法注入 -1.参数下标注入 -->
+<!--    <bean id="user" class="User">-->
+<!--        <constructor-arg index="0" value="苏伏"/>-->
+<!--        <constructor-arg index="1" value="18"/>-->
+<!--    </bean>-->
+
+    <!--全参构造方法注入 -2.参数类型注入，如果两个参数类型一样就不能注入 -->
+<!--    <bean id="user" class="User">-->
+<!--        <constructor-arg type="java.lang.String" value="苏伏"/>-->
+<!--        <constructor-arg type="int" value="18"/>-->
+<!--    </bean>-->
+
+    <!--全参构造方法注入 -3.参数名称注入 -->
+    <bean id="user" class="com.sufu.spring.ioc.entity.User">
+        <constructor-arg name="name" value="苏伏"/>
+        <constructor-arg name="age" value="18"/>
+    </bean>
+
+    <bean id="userT" class="com.sufu.spring.ioc.entity.UserT">
+        <constructor-arg name="name" value="苏伏"/>
+        <constructor-arg name="age" value="18"/>
+    </bean>
+    <alias name="user" alias="asasdasd"/>
+
+</beans>

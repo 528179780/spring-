@@ -1,0 +1,25 @@
+package com.sufu.spring.aop.service.impl;
+
+import com.sufu.spring.aop.service.UserService;
+
+/**
+ * @author sufu
+ * @date 2020/7/30
+ */
+public class UserServiceImpl implements UserService {
+    public void add() {
+        System.out.println("增加一个用户");
+    }
+
+    public void delete() {
+        System.out.println("删除一个用户");
+    }
+
+    public void update() {
+        System.out.println("修改一个用户");
+    }
+
+    public void query() {
+        System.out.println("查询一个用户");
+    }
+}
